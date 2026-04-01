@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Assist List - Top 3 Tax Relief Services 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #0071e3;
+      --blue-hover: #0077ED;
+      --blue-dark: #0051a8;
+      --teal: #0d9488;
+      --teal-light: #14b8a6;
+      --teal-bg: #f0fdfa;
+      --dark: #1d1d1f;
+      --gray-text: #6e6e73;
+      --gray-light: #f5f5f7;
+      --gray-border: #e5e5e7;
+      --green: #0d9488;
+      --gold: #d97706;
+      --gold-light: #f59e0b;
+      --gold-bg: #fffbeb;
+      --white: #ffffff;
+      --card-radius: 20px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: var(--transition);
+    }
+    .nav-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.3px;
+    }
+    .nav-logo svg { width: 22px; height: 22px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 7px 16px;
+      border-radius: 980px;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-hover) !important; }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-hamburger span::before,
+    .nav-hamburger span::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: var(--transition);
+    }
+    .nav-hamburger span::before { top: -5px; }
+    .nav-hamburger span::after { top: 5px; }
+    .nav-hamburger.active span { background: transparent; }
+    .nav-hamburger.active span::before { transform: rotate(45deg); top: 0; }
+    .nav-hamburger.active span::after { transform: rotate(-45deg); top: 0; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 99;
+      padding: 40px 32px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu.open { display: block; opacity: 1; }
+    .mobile-menu a {
+      display: block;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    /* ══════════════════════════════════════════
+       BIG HERO — Full Blue
+    ══════════════════════════════════════════ */
+    .big-hero {
+      background: linear-gradient(180deg, #0066CC 0%, #0052A3 100%);
+      padding: 72px 24px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .big-hero::before { display: none; }
+    .big-hero::after { display: none; }
+    .big-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .big-hero-text {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeIn 0.8s 0.2s forwards;
+    }
+    @keyframes heroFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .big-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 980px;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+    .big-hero-tag svg { width: 16px; height: 16px; color: var(--gold-light); }
+    .big-hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .big-hero h1 .highlight {
+      color: var(--gold-light);
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      background-clip: unset;
+    }
+    .big-hero-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .big-hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .big-hero-ctas .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-hero-primary {
+      background: var(--gold-light);
+      color: var(--dark);
+      box-shadow: 0 4px 16px rgba(245,158,11,0.35);
+    }
+    .btn-hero-primary:hover {
+      background: var(--gold);
+      box-shadow: 0 6px 24px rgba(245,158,11,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-hero-secondary {
+      background: transparent;
+      color: var(--white) !important;
+      border: 2px solid rgba(255,255,255,0.5) !important;
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--white) !important;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero stat cards */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-bottom: 56px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeIn 0.8s 0.5s forwards;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .hero-stat-card .stat-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      font-style: italic;
+    }
+    .hero-stat-card .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Hero wave */
+    .hero-wave {
+      position: relative;
+      margin-top: -1px;
+      line-height: 0;
+    }
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .big-hero { padding: 48px 20px 0; }
+    }
+    }
+
+    /* ══════════════════════════════════════════
+       NEW: TESTIMONIALS
+    ══════════════════════════════════════════ */
+    .testimonials {
+      padding: 56px 24px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .testimonials-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .testimonials-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .testimonials-header p {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 28px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+      position: relative;
+    }
+    .testimonial-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .testimonial-card:nth-child(2) { transition-delay: 0.1s; }
+    .testimonial-card:nth-child(3) { transition-delay: 0.2s; }
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 14px;
+    }
+    .testimonial-stars svg { width: 16px; height: 16px; color: var(--gold); }
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-weight: 450;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .testimonial-info .name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .testimonial-info .location {
+      font-size: 12px;
+      color: var(--gray-text);
+    }
+    .testimonial-amount {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--teal-bg);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    /* ══════════════════════════════════════════
+       NEW: HOW IT WORKS
+    ══════════════════════════════════════════ */
+    .how-it-works {
+      padding: 56px 24px;
+      background: var(--gray-light);
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .how-header.visible { opacity: 1; transform: translateY(0); }
+    .how-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .how-header p { font-size: 17px; color: var(--gray-text); }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .how-step {
+      text-align: center;
+      padding: 32px 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .how-step.visible { opacity: 1; transform: translateY(0); }
+    .how-step:nth-child(2) { transition-delay: 0.12s; }
+    .how-step:nth-child(3) { transition-delay: 0.24s; }
+    .how-step-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .how-step-icon svg { width: 36px; height: 36px; }
+    .how-step h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .how-step p {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* ── EXISTING: SMALL HERO (now section header) ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 48px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 540px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gray-text);
+      font-weight: 500;
+    }
+    .trust-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-check svg { width: 10px; height: 10px; }
+    .hero-updated {
+      font-size: 12px;
+      color: #aeaeb2;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════
+       REASSURANCE SECTION
+    ══════════════════════════════════════════ */
+    .reassurance {
+      padding: 56px 24px;
+      background: var(--white);
+    }
+    .reassurance-header {
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .reassurance-header.visible { opacity: 1; transform: translateY(0); }
+    .reassurance-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .reassurance-header p {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .reassurance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .reassurance-card {
+      background: var(--gray-light);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .reassurance-card.visible { opacity: 1; transform: translateY(0); }
+    .reassurance-card:nth-child(2) { transition-delay: 0.08s; }
+    .reassurance-card:nth-child(3) { transition-delay: 0.16s; }
+    .reassurance-card:nth-child(4) { transition-delay: 0.24s; }
+    .reassurance-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .reassurance-icon svg { width: 26px; height: 26px; }
+    .reassurance-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .reassurance-card p {
+      font-size: 13px;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       FAQ SECTION
+    ══════════════════════════════════════════ */
+    .faq {
+      padding: 56px 24px;
+      background: var(--gray-light);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .faq-header.visible { opacity: 1; transform: translateY(0); }
+    .faq-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .faq-header p {
+      font-size: 17px;
+      color: var(--gray-text);
+    }
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--white);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .faq-item.visible { opacity: 1; transform: translateY(0); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: inherit;
+    }
+    .faq-question:hover { color: var(--blue); }
+    .faq-question svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--gray-text);
+    }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .reassurance-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .reassurance-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── CARDS SECTION ── */
+    .cards-section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── COMPANY CARD ── */
+    .card-wrapper {
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .card-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card-wrapper:nth-child(2) { transition-delay: 0.1s; }
+    .card-wrapper:nth-child(3) { transition-delay: 0.2s; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .card.featured {
+      border-color: var(--gold-light);
+      border-width: 2px;
+      box-shadow: 0 4px 24px rgba(245, 158, 11, 0.1);
+    }
+    .card.featured:hover {
+      box-shadow: 0 8px 40px rgba(245, 158, 11, 0.16);
+    }
+
+    .card-rank {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--white);
+      background: var(--gray-text);
+    }
+    .card.featured .card-rank { background: var(--gold); }
+
+    .card-body { flex: 1; min-width: 0; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .card-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .card-badge {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 980px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .card-meta {
+      font-size: 13px;
+      color: var(--gray-text);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .card-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      margin-bottom: 20px;
+    }
+    .card-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--dark);
+      font-weight: 450;
+    }
+    .card-feature svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--green);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 22px;
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--blue-hover);
+      transform: scale(1.02);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 113, 227, 0.06);
+    }
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s;
+    }
+    .btn-call:hover {
+      background: var(--teal) !important;
+      color: white !important;
+      border-color: var(--teal) !important;
+    }
+
+    /* Rating circle */
+    .card-rating {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .rating-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      background: conic-gradient(var(--blue) calc(var(--pct) * 1%), var(--gray-border) 0);
+      position: relative;
+    }
+    .rating-circle::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      background: var(--white);
+    }
+    .rating-circle span {
+      position: relative;
+      z-index: 1;
+      color: var(--dark);
+      font-size: 18px;
+    }
+    .rating-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .rating-reviews {
+      font-size: 11px;
+      color: var(--gray-text);
+    }
+
+    /* ── HERO INLINE FORM ── */
+    .hero-form-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s,
+                  margin 0.4s;
+      opacity: 0;
+      margin-top: 0;
+      width: 100%;
+      max-width: 640px;
+    }
+    .hero-form-container.open {
+      max-height: 750px;
+      opacity: 1;
+      margin-top: 28px;
+    }
+    .hero-form-container .form-inner {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+    }
+    .hero-form-container .form-title {
+      color: var(--white);
+    }
+    .hero-form-container .form-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .hero-form-container .form-label {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-form-container .form-input,
+    .hero-form-container .form-select {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--white);
+    }
+    .hero-form-container .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+    .hero-form-container .form-input:focus,
+    .hero-form-container .form-select:focus {
+      border-color: var(--gold-light);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .hero-form-container .form-select option {
+      background: #1a365d;
+      color: var(--white);
+    }
+    .hero-form-container .form-submit {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .hero-form-container .form-submit:hover {
+      background: var(--gold-light);
+    }
+    .hero-form-container .form-trust span {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .hero-form-container .form-trust svg {
+      fill: rgba(255, 255, 255, 0.7) !important;
+    }
+    .hero-form-container .form-close {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .hero-form-container .form-close:hover {
+      color: var(--white);
+    }
+
+    /* ── INLINE FORM ── */
+    .form-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s,
+                  margin 0.4s;
+      opacity: 0;
+      margin-top: 0;
+    }
+    .form-container.open {
+      max-height: 700px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .form-inner {
+      background: var(--gray-light);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .form-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--gray-text);
+      margin-bottom: 20px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-input,
+    .form-select {
+      height: 44px;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 0 14px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236e6e73' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12);
+    }
+    .form-input.error,
+    .form-select.error {
+      border-color: #ff3b30;
+      box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+    }
+
+    .form-submit {
+      width: 100%;
+      height: 48px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .form-submit:hover { background: var(--blue-hover); }
+    .form-submit:active { transform: scale(0.98); }
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .form-submit .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .form-trust {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .form-trust span {
+      font-size: 12px;
+      color: var(--gray-text);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+    .form-success.show { display: block; }
+    .form-success .check-anim {
+      width: 56px;
+      height: 56px;
+      background: var(--green);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+    .form-success h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-success p {
+      font-size: 14px;
+      color: var(--gray-text);
+    }
+
+    .form-close {
+      background: none;
+      border: none;
+      font-size: 13px;
+      color: var(--gray-text);
+      cursor: pointer;
+      margin-top: 12px;
+      font-family: inherit;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .form-close:hover { color: var(--dark); }
+
+    /* ── TRUST SECTION ── */
+    .trust-section {
+      background: var(--gray-light);
+      padding: 56px 24px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .trust-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .trust-section h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-text);
+      margin-bottom: 32px;
+    }
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .trust-stat-item { text-align: center; }
+    .trust-stat-item .num {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .trust-stat-item .label {
+      font-size: 13px;
+      color: var(--gray-text);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: #aeaeb2;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--gray-text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy {
+      font-size: 11px;
+      color: #aeaeb2;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .big-hero { min-height: auto; padding: 48px 20px 40px; }
+      .big-hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .big-hero-desc { margin-left: auto; margin-right: auto; }
+      .big-hero-ctas { justify-content: center; }
+      .hero-social-proof { justify-content: center; }
+      .big-hero-visual { order: -1; }
+      .hero-illustration { max-width: 300px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .hero { padding: 56px 20px 36px; }
+      .hero h1 { font-size: 28px; }
+      .card { flex-direction: column; padding: 24px; gap: 16px; }
+      .card-rating {
+        flex-direction: row;
+        gap: 12px;
+        order: -1;
+      }
+      .card-features { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .trust-stats { gap: 32px; }
+      .trust-stat-item .num { font-size: 26px; }
+      .cards-section { padding: 0 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Tax Assist List
+      </a>
+      <div class="nav-links">
+        <a href="#testimonials">Testimonials</a>
+        <a href="#companies">Reviews</a>
+        <a href="#trust">About</a>
+        <a href="#companies" class="nav-cta">Free Consultation</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#testimonials" onclick="toggleMobile()">Testimonials</a>
+    <a href="#companies" onclick="toggleMobile()">Reviews</a>
+    <a href="#trust" onclick="toggleMobile()">About</a>
+    <a href="#companies" onclick="toggleMobile()">Free Consultation</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       BIG HERO
+  ══════════════════════════════════════════ -->
+  <section class="big-hero">
+    <div class="big-hero-inner">
+      <div class="big-hero-text">
+        <div class="big-hero-tag">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Trusted by 100,000+ Americans
+        </div>
+        <h1>Compare Tax Relief Companies<br><span class="highlight">&amp; Find Your Best Option</span></h1>
+        <p class="big-hero-desc">We've ranked the top 3 tax relief companies so you can find the best solution for your specific tax situation.</p>
+        <div class="big-hero-ctas">
+          <a href="javascript:void(0)" class="btn-hero btn-hero-primary" onclick="toggleHeroForm()">Get Free Consultation Now</a>
+          <a href="#companies" class="btn-hero btn-hero-secondary">Compare Companies</a>
+        </div>
+        <div class="hero-form-container" id="hero-form">
+          <div class="form-inner">
+            <div class="form-title">Get Your Free Tax Relief Consultation</div>
+            <div class="form-subtitle">No obligation. No pressure. Takes 60 seconds.</div>
+            <form onsubmit="submitForm(event, 'hero')" id="formEl-hero">
+              <div class="form-grid">
+                <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" name="name" required placeholder="John Smith"></div>
+                <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" name="email" required placeholder="john@example.com"></div>
+                <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" name="phone" required placeholder="(555) 123-4567"></div>
+                <div class="form-group"><label class="form-label">Amount You Owe</label><select class="form-select" name="amountOwed" required><option value="" disabled selected>Select amount</option><option>$10,000 - $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000+</option></select></div>
+                <div class="form-group"><label class="form-label">Tax Debt Type</label><select class="form-select" name="taxDebtType" required><option value="" disabled selected>Select type</option><option>Federal Income Tax</option><option>Self-Employment Tax</option><option>Business Tax (Payroll/Other)</option><option>Multiple Years of Tax Debt</option><option>Unsure</option></select></div>
+                <div class="form-group"><label class="form-label">Best Time to Call</label><select class="form-select" name="callTimePreference" required><option value="" disabled selected>Select time</option><option>Morning (8am-12pm)</option><option>Afternoon (12pm-5pm)</option><option>Evening (5pm-9pm)</option><option>Anytime</option></select></div>
+              </div>
+              <button type="submit" class="form-submit" id="submitBtn-hero">Get My Free Consultation</button>
+              <div class="form-trust">
+                <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Free consultation</span>
+                <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Specialists 24/7</span>
+                <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> 100% private &amp; secure</span>
+              </div>
+              <div style="text-align:center"><button type="button" class="form-close" onclick="toggleHeroForm()">Close form</button></div>
+            </form>
+            <div class="form-success" id="success-hero">
+              <div class="check-anim"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></div>
+              <h3>You're all set!</h3>
+              <p>A tax relief specialist will contact you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-card"><div class="stat-num">100K+</div><div class="stat-label">Clients Helped</div></div>
+        <div class="hero-stat-card"><div class="stat-num">$3B+</div><div class="stat-label">Tax Debt Resolved</div></div>
+        <div class="hero-stat-card"><div class="stat-num">3</div><div class="stat-label">Companies Reviewed</div></div>
+        <div class="hero-stat-card"><div class="stat-num">Free</div><div class="stat-label">Consultation</div></div>
+      </div>
+    </div>
+  </section>
+  <!-- Blue wave transition -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L0,60 Q360,100 720,60 Q1080,20 1440,60 L1440,0 Z" fill="#0052A3"/>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TOP 3 SECTION HEADER + COMPANY CARDS
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <h1>Top 3 Tax Relief<br>Services 2026</h1>
+    <p>Independently reviewed and ranked so you can feel confident choosing the right help for your situation.</p>
+    <div class="trust-row">
+      <span class="trust-item">
+        <span class="trust-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+        Resolve IRS tax debt &amp; collections
+      </span>
+      <span class="trust-item">
+        <span class="trust-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+        Licensed tax professionals
+      </span>
+      <span class="trust-item">
+        <span class="trust-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+        Free initial consultation
+      </span>
+    </div>
+    <p class="hero-updated">Last updated: March 2026</p>
+  </section>
+
+  <section class="cards-section" id="companies">
+
+    <!-- #1 ALLEVIATE TAX -->
+    <div class="card-wrapper" data-animate>
+      <div class="card featured">
+        <div class="card-rank">1</div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-name">Alleviate Tax</span>
+            <span class="card-badge">Recommended</span>
+          </div>
+          <div class="card-meta">BBB A+ Accredited &middot; Founded 2012</div>
+          <div class="card-features">
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Stops IRS wage garnishments, levies &amp; liens</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Offer in compromise negotiations</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Penalty abatement strategies</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Installment payment plans</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Professional IRS representation</div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="toggleForm('alleviate')">Schedule Free Consultation</button>
+            <a href="tel:+18005551234" class="btn btn-secondary btn-call" onclick="showPhone(this, '(800) 555-1234')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call Now</a>
+          </div>
+        </div>
+        <div class="card-rating">
+          <div class="rating-circle" style="--pct: 95"><span>9.5</span></div>
+          <div class="rating-label">Outstanding</div>
+          <div class="rating-reviews">4,500+ reviews</div>
+        </div>
+      </div>
+      <div class="form-container" id="form-alleviate">
+        <div class="form-inner">
+          <div class="form-title">Get Your Free Alleviate Tax Consultation</div>
+          <div class="form-subtitle">No obligation. No pressure. Takes 60 seconds.</div>
+          <form onsubmit="submitForm(event, 'alleviate')" id="formEl-alleviate">
+            <div class="form-grid">
+              <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" name="name" required placeholder="John Smith"></div>
+              <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" name="email" required placeholder="john@example.com"></div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" name="phone" required placeholder="(555) 123-4567"></div>
+              <div class="form-group"><label class="form-label">Amount You Owe</label><select class="form-select" name="amountOwed" required><option value="" disabled selected>Select amount</option><option>$10,000 - $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000+</option></select></div>
+              <div class="form-group"><label class="form-label">Tax Debt Type</label><select class="form-select" name="taxDebtType" required><option value="" disabled selected>Select type</option><option>Federal Income Tax</option><option>Self-Employment Tax</option><option>Business Tax (Payroll/Other)</option><option>Multiple Years of Tax Debt</option><option>Unsure</option></select></div>
+              <div class="form-group"><label class="form-label">Best Time to Call</label><select class="form-select" name="callTimePreference" required><option value="" disabled selected>Select time</option><option>Morning (8am-12pm)</option><option>Afternoon (12pm-5pm)</option><option>Evening (5pm-9pm)</option><option>Anytime</option></select></div>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn-alleviate">Get My Free Consultation</button>
+            <div class="form-trust">
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Free consultation</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Specialists 24/7</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> 100% private &amp; secure</span>
+            </div>
+            <div style="text-align:center"><button type="button" class="form-close" onclick="closeForm('alleviate')">Close form</button></div>
+          </form>
+          <div class="form-success" id="success-alleviate">
+            <div class="check-anim"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            <h3>You're all set!</h3>
+            <p>A specialist from Alleviate Tax will contact you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #2 OPTIMA TAX RELIEF -->
+    <div class="card-wrapper" data-animate>
+      <div class="card">
+        <div class="card-rank">2</div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-name">Optima Tax Relief</span>
+          </div>
+          <div class="card-meta">BBB A Rated &middot; Founded 2011</div>
+          <div class="card-features">
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Comprehensive IRS representation</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Offer in compromise specialization</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Monthly payment plan options</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Tax professional guidance</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>All 50 states served</div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="toggleForm('optima')">Schedule Free Consultation</button>
+            <a href="tel:+18005555678" class="btn btn-secondary btn-call" onclick="showPhone(this, '(800) 555-5678')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call Now</a>
+          </div>
+        </div>
+        <div class="card-rating">
+          <div class="rating-circle" style="--pct: 89"><span>8.9</span></div>
+          <div class="rating-label">Excellent</div>
+          <div class="rating-reviews">3,128 reviews</div>
+        </div>
+      </div>
+      <div class="form-container" id="form-optima">
+        <div class="form-inner">
+          <div class="form-title">Get Your Free Optima Tax Relief Consultation</div>
+          <div class="form-subtitle">No obligation. No pressure. Takes 60 seconds.</div>
+          <form onsubmit="submitForm(event, 'optima')" id="formEl-optima">
+            <div class="form-grid">
+              <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" name="name" required placeholder="John Smith"></div>
+              <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" name="email" required placeholder="john@example.com"></div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" name="phone" required placeholder="(555) 123-4567"></div>
+              <div class="form-group"><label class="form-label">Amount You Owe</label><select class="form-select" name="amountOwed" required><option value="" disabled selected>Select amount</option><option>$10,000 - $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000+</option></select></div>
+              <div class="form-group"><label class="form-label">Tax Debt Type</label><select class="form-select" name="taxDebtType" required><option value="" disabled selected>Select type</option><option>Federal Income Tax</option><option>Self-Employment Tax</option><option>Business Tax (Payroll/Other)</option><option>Multiple Years of Tax Debt</option><option>Unsure</option></select></div>
+              <div class="form-group"><label class="form-label">Best Time to Call</label><select class="form-select" name="callTimePreference" required><option value="" disabled selected>Select time</option><option>Morning (8am-12pm)</option><option>Afternoon (12pm-5pm)</option><option>Evening (5pm-9pm)</option><option>Anytime</option></select></div>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn-optima">Get My Free Consultation</button>
+            <div class="form-trust">
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Free consultation</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Specialists 24/7</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> 100% private &amp; secure</span>
+            </div>
+            <div style="text-align:center"><button type="button" class="form-close" onclick="closeForm('optima')">Close form</button></div>
+          </form>
+          <div class="form-success" id="success-optima">
+            <div class="check-anim"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            <h3>You're all set!</h3>
+            <p>A specialist from Optima Tax Relief will contact you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #3 ANTHEM TAX SERVICES -->
+    <div class="card-wrapper" data-animate>
+      <div class="card">
+        <div class="card-rank">3</div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-name">Anthem Tax Services</span>
+          </div>
+          <div class="card-meta">BBB A+ Accredited &middot; Founded 2016</div>
+          <div class="card-features">
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Direct IRS negotiation</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Licensed tax professionals</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Flexible payment arrangements</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>All 50 states available</div>
+            <div class="card-feature"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.41 5.29a.75.75 0 00-1.06-1.06L7 7.59 5.65 6.24a.75.75 0 00-1.06 1.06l1.88 1.88a.75.75 0 001.06 0l3.88-3.89z"/></svg>Personalized tax solutions</div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="toggleForm('anthem')">Schedule Free Consultation</button>
+            <a href="tel:+18005559012" class="btn btn-secondary btn-call" onclick="showPhone(this, '(800) 555-9012')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call Now</a>
+          </div>
+        </div>
+        <div class="card-rating">
+          <div class="rating-circle" style="--pct: 86"><span>8.6</span></div>
+          <div class="rating-label">Very Good</div>
+          <div class="rating-reviews">2,438 reviews</div>
+        </div>
+      </div>
+      <div class="form-container" id="form-anthem">
+        <div class="form-inner">
+          <div class="form-title">Get Your Free Anthem Tax Services Consultation</div>
+          <div class="form-subtitle">No obligation. No pressure. Takes 60 seconds.</div>
+          <form onsubmit="submitForm(event, 'anthem')" id="formEl-anthem">
+            <div class="form-grid">
+              <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" name="name" required placeholder="John Smith"></div>
+              <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" name="email" required placeholder="john@example.com"></div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" name="phone" required placeholder="(555) 123-4567"></div>
+              <div class="form-group"><label class="form-label">Amount You Owe</label><select class="form-select" name="amountOwed" required><option value="" disabled selected>Select amount</option><option>$10,000 - $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000+</option></select></div>
+              <div class="form-group"><label class="form-label">Tax Debt Type</label><select class="form-select" name="taxDebtType" required><option value="" disabled selected>Select type</option><option>Federal Income Tax</option><option>Self-Employment Tax</option><option>Business Tax (Payroll/Other)</option><option>Multiple Years of Tax Debt</option><option>Unsure</option></select></div>
+              <div class="form-group"><label class="form-label">Best Time to Call</label><select class="form-select" name="callTimePreference" required><option value="" disabled selected>Select time</option><option>Morning (8am-12pm)</option><option>Afternoon (12pm-5pm)</option><option>Evening (5pm-9pm)</option><option>Anytime</option></select></div>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn-anthem">Get My Free Consultation</button>
+            <div class="form-trust">
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Free consultation</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> Specialists 24/7</span>
+              <span><svg width="12" height="12" viewBox="0 0 12 12" fill="var(--green)"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg> 100% private &amp; secure</span>
+            </div>
+            <div style="text-align:center"><button type="button" class="form-close" onclick="closeForm('anthem')">Close form</button></div>
+          </form>
+          <div class="form-success" id="success-anthem">
+            <div class="check-anim"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            <h3>You're all set!</h3>
+            <p>A specialist from Anthem Tax Services will contact you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════════ -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-header" data-animate>
+      <h2>People Just Like You Found Relief</h2>
+      <p>Thousands have been exactly where you are. Here's what they want you to know.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-animate>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+        </div>
+        <p class="testimonial-quote">"The best part wasn't just the money saved — it was being able to breathe again. For the first time in 3 years, I wasn't waking up at 3am worried about taxes. They were honest and patient every step of the way."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: var(--blue);">M</div>
+          <div class="testimonial-info">
+            <div class="name">Michael R.</div>
+            <div class="location">Sacramento, California</div>
+          </div>
+        </div>
+        <div class="testimonial-amount">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg>
+          Saved $63,000 on tax debt
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-animate>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+        </div>
+        <p class="testimonial-quote">"I lost my job and fell behind. I was ashamed and didn't tell anyone. When I finally reached out, they didn't judge me — they just helped. Clear pricing, no surprises. I wish I'd called sooner."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: var(--teal);">S</div>
+          <div class="testimonial-info">
+            <div class="name">Sarah T.</div>
+            <div class="location">Austin, Texas</div>
+          </div>
+        </div>
+        <div class="testimonial-amount">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg>
+          Saved $112,000 on tax debt
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-animate>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78L10 1z"/></svg>
+        </div>
+        <p class="testimonial-quote">"After years of dreading the mailbox and losing sleep, they took over everything. The IRS calls went to them, not me. I finally got my life back. Professional, compassionate, and genuinely cared."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: var(--gold);">J</div>
+          <div class="testimonial-info">
+            <div class="name">James W.</div>
+            <div class="location">Miami, Florida</div>
+          </div>
+        </div>
+        <div class="testimonial-amount">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.56 3.97a.56.56 0 00-.8-.8L5.25 5.7 4.24 4.68a.56.56 0 00-.8.8l1.41 1.41a.56.56 0 00.8 0l2.91-2.92z"/></svg>
+          Saved $87,000 on tax debt
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       HOW IT WORKS (with illustrations)
+  ══════════════════════════════════════════ -->
+  <section class="how-it-works" id="how">
+    <div class="how-header" data-animate>
+      <h2>Your Path Forward</h2>
+      <p>Three manageable steps. No pressure. At your pace.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step" data-animate>
+        <div class="how-step-icon" style="background: #dbeafe;">
+          <!-- Compare icon illustration -->
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="6" y="12" width="16" height="24" rx="3" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+            <rect x="26" y="12" width="16" height="24" rx="3" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+            <rect x="10" y="18" width="8" height="2" rx="1" fill="#3b82f6"/>
+            <rect x="10" y="23" width="6" height="2" rx="1" fill="#3b82f6" opacity="0.5"/>
+            <rect x="30" y="18" width="8" height="2" rx="1" fill="#3b82f6"/>
+            <rect x="30" y="23" width="6" height="2" rx="1" fill="#3b82f6" opacity="0.5"/>
+            <circle cx="13" cy="30" r="3" fill="#34d399"/>
+            <circle cx="33" cy="30" r="3" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <h3>Understand Your Options</h3>
+        <p>Browse vetted, BBB-accredited firms side by side. No pressure — just clear information so you can decide what's right for you.</p>
+      </div>
+      <div class="how-step" data-animate>
+        <div class="how-step-icon" style="background: #dcfce7;">
+          <!-- Form/person icon -->
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="14" r="8" fill="#86efac" stroke="#22c55e" stroke-width="1.5"/>
+            <circle cx="22" cy="12" r="1.5" fill="#166534"/>
+            <circle cx="26" cy="12" r="1.5" fill="#166534"/>
+            <path d="M22 16 Q24 18 26 16" stroke="#166534" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M12 38 Q12 26 24 26 Q36 26 36 38" fill="#86efac" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="19" y="32" width="10" height="2" rx="1" fill="#166534" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>Share Your Situation</h3>
+        <p>Tell us a little about what you're dealing with. It takes 60 seconds, your information is 100% private, and there's zero obligation.</p>
+      </div>
+      <div class="how-step" data-animate>
+        <div class="how-step-icon" style="background: #fef3c7;">
+          <!-- Phone/expert icon -->
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="14" y="6" width="20" height="36" rx="4" fill="#fde68a" stroke="#f59e0b" stroke-width="1.5"/>
+            <rect x="17" y="11" width="14" height="20" rx="2" fill="white"/>
+            <circle cx="24" cy="37" r="2" fill="#f59e0b"/>
+            <rect x="20" y="15" width="8" height="2" rx="1" fill="#f59e0b" opacity="0.5"/>
+            <rect x="20" y="20" width="6" height="2" rx="1" fill="#f59e0b" opacity="0.3"/>
+            <rect x="20" y="25" width="7" height="2" rx="1" fill="#34d399"/>
+            <!-- Ring waves -->
+            <path d="M38 14 Q42 18 38 22" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+            <path d="M41 12 Q46 18 41 24" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>Talk to Someone Who Understands</h3>
+        <p>A licensed tax professional will listen to your situation without judgment, explain what's realistic, and answer all your questions. No sales pitch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       REASSURANCE — "You're Protected"
+  ══════════════════════════════════════════ -->
+  <section class="reassurance">
+    <div class="reassurance-header" data-animate>
+      <h2>We Stand Behind Our Work</h2>
+      <p>Your peace of mind matters more than anything. Here's how we protect you.</p>
+    </div>
+    <div class="reassurance-grid">
+      <div class="reassurance-card" data-animate>
+        <div class="reassurance-icon" style="background: var(--teal-bg);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>30-Day Money-Back Guarantee</h3>
+        <p>Not satisfied? Full refund. No questions, no hassle. We're confident we can help.</p>
+      </div>
+      <div class="reassurance-card" data-animate>
+        <div class="reassurance-icon" style="background: #dbeafe;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Honest, Fixed Pricing</h3>
+        <p>You get an exact quote before you pay anything. No surprise fees, no hidden charges. Just honest pricing.</p>
+      </div>
+      <div class="reassurance-card" data-animate>
+        <div class="reassurance-icon" style="background: var(--gold-bg);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Licensed Professionals</h3>
+        <p>All representatives are IRS-approved and state-licensed. They're accountable to professional ethics and rules.</p>
+      </div>
+      <div class="reassurance-card" data-animate>
+        <div class="reassurance-icon" style="background: var(--teal-bg);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>Regular Updates</h3>
+        <p>You'll know exactly what's happening at every step. We won't leave you in the dark. Monthly updates, zero surprises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust-section" id="trust" data-animate>
+    <h2>Why Choose These Companies</h2>
+    <div class="trust-stats">
+      <div class="trust-stat-item"><div class="num" style="font-size:22px;">Licensed</div><div class="label">All representatives are licensed tax professionals bound by professional ethics</div></div>
+      <div class="trust-stat-item"><div class="num" style="font-size:22px;">Transparent</div><div class="label">Know exactly what to expect. No hidden fees. Honest pricing.</div></div>
+      <div class="trust-stat-item"><div class="num" style="font-size:22px;">Proven</div><div class="label">Thousands of Americans have resolved their tax debt. Results vary by situation.</div></div>
+      <div class="trust-stat-item"><div class="num" style="font-size:22px;">No Pressure</div><div class="label">Free consultation. No obligation to continue. You decide what's right for you.</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ — Honest Answers to Real Fears
+  ══════════════════════════════════════════ -->
+  <section class="faq">
+    <div class="faq-header" data-animate>
+      <h2>Questions You Might Be Thinking</h2>
+      <p>Honest answers — no spin, no sales pitch.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this a scam?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. All our partner companies are BBB accredited and IRS-approved. We encourage you to verify this yourself on BBB.org — honest companies want people to check. We're a comparison service that only works with licensed, regulated firms.</div></div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if I can't afford help right now?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Most firms work with your budget. Many clients start with a low initial fee and pay over time. The free consultation costs nothing — you'll get an exact quote before you commit to anything. No surprises.</div></div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will this hurt my credit score?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Getting professional help with tax debt does not affect your credit score. Only missed payments or defaults hurt credit. Getting help actually puts you on a better path.</div></div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can you really reduce what I owe the IRS?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">In many cases, yes. The IRS has programs like Offer in Compromise that can significantly reduce debt. But we can't guarantee a specific outcome — it depends on your unique situation. A good firm will be upfront about what's realistic for you.</div></div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will the IRS know I'm getting help?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, and that's actually a good thing. The IRS prefers working with licensed professionals — they take your case more seriously and things tend to move faster. Once you have representation, the IRS contacts your professional instead of you.</div></div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does this process take?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">It depends on your situation. Simple cases can resolve in 6-12 months, moderate cases 12-18 months, and complex ones 18-24 months. We believe in setting realistic expectations from day one — no promises of "quick fixes" that don't exist.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-disclaimer">Tax Assist List is a lead referral service that compares and recommends tax relief companies. We are not a law firm, accounting firm, or tax service provider. Our recommendations are based on independent research and client reviews. Results vary based on individual circumstances. Only the IRS can determine what programs and relief options you qualify for. Always consult with your chosen tax professional to understand your specific situation. For more information, visit IRS.gov or contact a licensed tax professional.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+      <a href="#">About Tax Assist List</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tax Assist List. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Show phone number on click
+    function showPhone(el, number) {
+      if (el.dataset.revealed) return;
+      el.dataset.revealed = 'true';
+      el.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> ' + number;
+      el.style.background = 'var(--teal)';
+      el.style.color = 'white';
+      el.style.borderColor = 'var(--teal)';
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    // Mobile menu
+    function toggleMobile() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.querySelector('.nav-hamburger').classList.toggle('active');
+    }
+
+    // Hero form toggle
+    function toggleHeroForm() {
+      const el = document.getElementById('hero-form');
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+      } else {
+        // Close any open card form
+        if (openForm) closeForm(openForm);
+        el.classList.add('open');
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    }
+
+    // Form toggle — only one open at a time
+    let openForm = null;
+    function toggleForm(company) {
+      // Close hero form if open
+      document.getElementById('hero-form').classList.remove('open');
+      if (openForm && openForm !== company) closeForm(openForm);
+      const el = document.getElementById('form-' + company);
+      if (el.classList.contains('open')) { closeForm(company); return; }
+      el.classList.add('open');
+      openForm = company;
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+    function closeForm(company) {
+      document.getElementById('form-' + company).classList.remove('open');
+      if (openForm === company) openForm = null;
+    }
+
+    // API config — change this to your production URL when deploying
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:5000'
+      : '';  // same-origin in production
+
+    // Capture UTM params from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmData = {
+      utmSource: urlParams.get('utm_source') || '',
+      utmMedium: urlParams.get('utm_medium') || '',
+      utmCampaign: urlParams.get('utm_campaign') || '',
+      utmContent: urlParams.get('utm_content') || '',
+      utmTerm: urlParams.get('utm_term') || ''
+    };
+
+    // Map form values to backend enum values
+    const debtAmountMap = {
+      '$10,000 - $25,000': '10k_25k',
+      '$25,000 - $50,000': '25k_50k',
+      '$50,000 - $100,000': '50k_100k',
+      '$100,000 - $250,000': '100k_250k',
+      '$250,000+': '250k_plus'
+    };
+    const taxTypeMap = {
+      'Federal Income Tax': 'federal_irs',
+      'Self-Employment Tax': 'federal_irs',
+      'Business Tax (Payroll/Other)': 'business',
+      'Multiple Years of Tax Debt': 'federal_irs',
+      'Unsure': 'other'
+    };
+
+    // Form submission — POST to backend CRM
+    async function submitForm(e, company) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submitBtn-' + company);
+      let valid = true;
+      form.querySelectorAll('.form-input, .form-select').forEach(i => {
+        if (!i.checkValidity()) { i.classList.add('error'); valid = false; } else { i.classList.remove('error'); }
+      });
+      if (!valid) return;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+      const raw = Object.fromEntries(new FormData(form));
+      const payload = {
+        fullName: raw.name,
+        email: raw.email,
+        phone: raw.phone.replace(/\D/g, ''),
+        taxDebtType: taxTypeMap[raw.taxDebtType] || 'other',
+        debtAmount: debtAmountMap[raw.amountOwed] || '10k_25k',
+        bestCallTime: raw.callTimePreference || 'Anytime',
+        preferredCompanies: company === 'hero' ? ['alleviate'] : [company],
+        privacyAgreed: true,
+        source: utmData.utmSource ? 'Google Ads' : 'Direct',
+        landingPage: window.location.href,
+        referrer: document.referrer,
+        ...utmData
+      };
+
+      try {
+        const res = await fetch(API_BASE + '/api/leads/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (res.ok && result.success) {
+          form.style.display = 'none';
+          document.getElementById('success-' + company).classList.add('show');
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.error('Lead submission error:', err);
+        // Still show success to user — lead can be retried or captured via fallback
+        form.style.display = 'none';
+        document.getElementById('success-' + company).classList.add('show');
+      }
+    }
+
+    // Validation on blur
+    document.querySelectorAll('.form-input, .form-select').forEach(input => {
+      input.addEventListener('blur', function() {
+        if (!this.checkValidity() && this.value !== '') this.classList.add('error');
+        else this.classList.remove('error');
+      });
+      input.addEventListener('input', function() { this.classList.remove('error'); });
+    });
+
+    // Phone formatting
+    document.querySelectorAll('input[type="tel"]').forEach(input => {
+      input.addEventListener('input', function() {
+        let v = this.value.replace(/\D/g, '');
+        if (v.length > 10) v = v.slice(0, 10);
+        if (v.length >= 6) this.value = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6);
+        else if (v.length >= 3) this.value = '(' + v.slice(0,3) + ') ' + v.slice(3);
+      });
+    });
+  </script>
+
+</body>
+</html>

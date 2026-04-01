@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Assist List — Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #0071e3;
+      --blue-hover: #0077ED;
+      --blue-dark: #0051a8;
+      --teal: #0d9488;
+      --teal-light: #14b8a6;
+      --gold: #d97706;
+      --gold-light: #f59e0b;
+      --dark: #1d1d1f;
+      --gray-text: #6e6e73;
+      --gray-light: #f5f5f7;
+      --gray-border: #e5e5e7;
+      --white: #ffffff;
+      --red: #ef4444;
+      --green: #22c55e;
+      --sidebar-w: 240px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      background: var(--gray-light);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    /* ── LOGIN ── */
+    .login-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0051a8 0%, #0071e3 50%, #0d9488 100%);
+    }
+    .login-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 48px 40px;
+      width: 400px;
+      max-width: 90vw;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .login-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    .login-card .sub { color: var(--gray-text); font-size: 14px; margin-bottom: 28px; }
+    .login-card label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--dark); }
+    .login-card input {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--gray-border); border-radius: 10px;
+      font-size: 14px; margin-bottom: 16px; outline: none; transition: var(--transition);
+    }
+    .login-card input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,113,227,0.1); }
+    .login-btn {
+      width: 100%; padding: 12px; background: var(--blue); color: white; border: none; border-radius: 10px;
+      font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition);
+    }
+    .login-btn:hover { background: var(--blue-hover); }
+    .login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .login-error { color: var(--red); font-size: 13px; margin-bottom: 12px; display: none; }
+
+    /* ── LAYOUT ── */
+    .app { display: none; min-height: 100vh; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; bottom: 0; width: var(--sidebar-w);
+      background: var(--dark); color: white; padding: 24px 0; z-index: 50;
+      display: flex; flex-direction: column;
+    }
+    .sidebar-logo {
+      padding: 0 20px 24px; font-size: 17px; font-weight: 700;
+      border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sidebar-logo svg { width: 20px; height: 20px; color: var(--gold-light); }
+    .sidebar-nav { flex: 1; padding: 8px 12px; }
+    .nav-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px;
+      color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 500; cursor: pointer;
+      transition: var(--transition); text-decoration: none; margin-bottom: 2px;
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.08); color: white; }
+    .nav-item.active { background: rgba(0,113,227,0.3); color: white; }
+    .nav-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .nav-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.3); padding: 16px 12px 6px; }
+    .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sidebar-footer button {
+      background: none; border: none; color: rgba(255,255,255,0.5); font-size: 13px;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+    }
+    .sidebar-footer button:hover { color: white; }
+
+    .main { margin-left: var(--sidebar-w); padding: 28px 32px; min-height: 100vh; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    .page-header h2 { font-size: 22px; font-weight: 700; }
+    .page-header .subtitle { font-size: 13px; color: var(--gray-text); }
+
+    /* ── KPI CARDS ── */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .kpi-card {
+      background: white; border-radius: 14px; padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .kpi-card .kpi-label { font-size: 12px; font-weight: 600; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .kpi-card .kpi-value { font-size: 28px; font-weight: 800; color: var(--dark); line-height: 1.2; }
+    .kpi-card .kpi-sub { font-size: 12px; color: var(--gray-text); margin-top: 4px; }
+    .kpi-card .kpi-up { color: var(--green); }
+    .kpi-card .kpi-down { color: var(--red); }
+
+    /* ── CARDS / SECTIONS ── */
+    .card-section {
+      background: white; border-radius: 14px; padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 20px;
+    }
+    .card-section h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+    .card-section .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .card-section .section-header h3 { margin-bottom: 0; }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th {
+      text-align: left; padding: 10px 12px; font-weight: 600; color: var(--gray-text);
+      border-bottom: 2px solid var(--gray-border); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    tbody td { padding: 12px; border-bottom: 1px solid var(--gray-border); }
+    tbody tr { cursor: pointer; transition: background 0.15s; }
+    tbody tr:hover { background: var(--gray-light); }
+    .status-badge {
+      display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+    }
+    .status-new { background: #dbeafe; color: #1d4ed8; }
+    .status-contacted { background: #fef3c7; color: #92400e; }
+    .status-qualified { background: #d1fae5; color: #065f46; }
+    .status-converted { background: #dcfce7; color: #166534; }
+    .status-lost { background: #fee2e2; color: #991b1b; }
+    .status-active { background: #dcfce7; color: #166534; }
+    .status-paused { background: #fef3c7; color: #92400e; }
+    .status-completed { background: #e0e7ff; color: #3730a3; }
+    .status-draft { background: #f3f4f6; color: #4b5563; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: var(--transition);
+      border: none; text-decoration: none;
+    }
+    .btn-primary { background: var(--blue); color: white; }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-secondary { background: var(--gray-light); color: var(--dark); border: 1px solid var(--gray-border); }
+    .btn-secondary:hover { background: var(--gray-border); }
+    .btn-gold { background: var(--gold); color: white; }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-danger { background: var(--red); color: white; }
+    .btn-sm { padding: 5px 12px; font-size: 12px; }
+    .btn svg { width: 14px; height: 14px; }
+
+    /* ── FORMS ── */
+    .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--gray-text); margin-bottom: 4px; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 8px 12px; border: 1px solid var(--gray-border); border-radius: 8px; font-size: 13px;
+      outline: none; transition: var(--transition); font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,113,227,0.1);
+    }
+
+    /* ── FILTERS ── */
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+    .filters input, .filters select {
+      padding: 7px 12px; border: 1px solid var(--gray-border); border-radius: 8px; font-size: 13px;
+      outline: none; transition: var(--transition);
+    }
+    .filters input:focus, .filters select:focus { border-color: var(--blue); }
+    .filters input[type="text"] { min-width: 220px; }
+
+    /* ── SLIDE-OUT PANEL ── */
+    .panel-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 200;
+    }
+    .panel-overlay.open { display: block; }
+    .slide-panel {
+      position: fixed; top: 0; right: -540px; bottom: 0; width: 520px; max-width: 100vw;
+      background: white; z-index: 201; box-shadow: -4px 0 30px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; padding: 28px;
+    }
+    .slide-panel.open { right: 0; }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .panel-header h3 { font-size: 18px; font-weight: 700; }
+    .panel-close {
+      background: none; border: none; cursor: pointer; color: var(--gray-text); padding: 4px;
+      border-radius: 6px; transition: var(--transition);
+    }
+    .panel-close:hover { background: var(--gray-light); color: var(--dark); }
+    .panel-section { margin-bottom: 20px; }
+    .panel-section h4 { font-size: 13px; font-weight: 700; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .panel-field { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--gray-light); font-size: 13px; }
+    .panel-field .label { color: var(--gray-text); }
+    .panel-field .value { font-weight: 600; text-align: right; }
+
+    /* ── CHART (simple CSS bar chart) ── */
+    .bar-chart { display: flex; align-items: flex-end; gap: 4px; height: 160px; padding-top: 10px; }
+    .bar-chart .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+    .bar-chart .bar {
+      width: 100%; max-width: 32px; border-radius: 4px 4px 0 0;
+      transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bar-chart .bar-label { font-size: 9px; color: var(--gray-text); white-space: nowrap; }
+    .bar-chart .bar-value { font-size: 9px; font-weight: 700; color: var(--dark); }
+
+    /* ── FUNNEL ── */
+    .funnel { display: flex; flex-direction: column; gap: 8px; }
+    .funnel-row { display: flex; align-items: center; gap: 12px; }
+    .funnel-bar-wrap { flex: 1; background: var(--gray-light); border-radius: 6px; height: 28px; overflow: hidden; }
+    .funnel-bar { height: 100%; border-radius: 6px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; padding-left: 10px; font-size: 11px; font-weight: 700; color: white; min-width: 40px; }
+    .funnel-label { font-size: 12px; font-weight: 600; width: 110px; flex-shrink: 0; }
+    .funnel-count { font-size: 12px; font-weight: 700; width: 50px; text-align: right; flex-shrink: 0; }
+
+    /* ── TABS ── */
+    .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray-border); margin-bottom: 20px; }
+    .tab {
+      padding: 10px 20px; font-size: 13px; font-weight: 600; color: var(--gray-text);
+      cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: var(--transition);
+    }
+    .tab:hover { color: var(--dark); }
+    .tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+    /* ── RANGE SELECTOR ── */
+    .range-sel { display: flex; gap: 4px; background: var(--gray-light); border-radius: 8px; padding: 3px; }
+    .range-btn {
+      padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+      cursor: pointer; border: none; background: none; color: var(--gray-text); transition: var(--transition);
+    }
+    .range-btn.active { background: white; color: var(--dark); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+    /* ── TOAST ── */
+    .toast-container { position: fixed; top: 20px; right: 20px; z-index: 300; display: flex; flex-direction: column; gap: 8px; }
+    .toast {
+      background: var(--dark); color: white; padding: 12px 20px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      animation: toastIn 0.3s forwards;
+    }
+    .toast.success { background: var(--teal); }
+    .toast.error { background: var(--red); }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── PAGINATION ── */
+    .pagination { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; }
+    .pagination .info { font-size: 12px; color: var(--gray-text); }
+    .pagination .controls { display: flex; gap: 6px; }
+    .pagination .controls button {
+      padding: 5px 12px; border: 1px solid var(--gray-border); border-radius: 6px;
+      background: white; font-size: 12px; cursor: pointer; transition: var(--transition);
+    }
+    .pagination .controls button:hover { background: var(--gray-light); }
+    .pagination .controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state { text-align: center; padding: 48px 20px; color: var(--gray-text); }
+    .empty-state svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: 0.3; }
+    .empty-state h3 { font-size: 16px; color: var(--dark); margin-bottom: 4px; }
+    .empty-state p { font-size: 13px; }
+
+    /* ── PAGE VIEWS ── */
+    .page-view { display: none; }
+    .page-view.active { display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 16px; }
+      .mobile-toggle {
+        display: flex !important; position: fixed; top: 12px; left: 12px; z-index: 60;
+        background: var(--dark); color: white; border: none; border-radius: 8px;
+        width: 36px; height: 36px; align-items: center; justify-content: center; cursor: pointer;
+      }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .slide-panel { width: 100vw; }
+    }
+
+    .mobile-toggle { display: none; }
+
+    /* ── ADD MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 250;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 16px; padding: 32px; width: 560px; max-width: 95vw;
+      max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .modal h3 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ LOGIN ═══ -->
+<div class="login-wrap" id="loginScreen">
+  <div class="login-card">
+    <h1>Tax Assist List</h1>
+    <p class="sub">Sign in to your portal</p>
+    <div class="login-error" id="loginError"></div>
+    <form onsubmit="doLogin(event)">
+      <label>Username</label>
+      <input type="text" id="loginUser" required autocomplete="username" placeholder="admin">
+      <label>Password</label>
+      <input type="password" id="loginPass" required autocomplete="current-password" placeholder="Enter password">
+      <button type="submit" class="login-btn" id="loginBtn">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div class="app" id="app">
+
+  <!-- Mobile toggle -->
+  <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Tax Assist List
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Overview</div>
+      <a class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <div class="nav-section">Manage</div>
+      <a class="nav-item" data-page="leads" onclick="showPage('leads')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Leads
+      </a>
+      <a class="nav-item" data-page="campaigns" onclick="showPage('campaigns')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Campaigns
+      </a>
+      <a class="nav-item" data-page="profit" onclick="showPage('profit')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Profit & Loss
+      </a>
+      <div class="nav-section">Tools</div>
+      <a class="nav-item" data-page="settings" onclick="showPage('settings')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button onclick="doLogout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- ══ DASHBOARD ══ -->
+    <div class="page-view active" id="page-dashboard">
+      <div class="page-header">
+        <div>
+          <h2>Dashboard</h2>
+          <div class="subtitle">Overview of your lead generation performance</div>
+        </div>
+        <div class="range-sel" id="dashRange">
+          <button class="range-btn" data-range="today" onclick="setRange('today')">Today</button>
+          <button class="range-btn" data-range="week" onclick="setRange('week')">Week</button>
+          <button class="range-btn active" data-range="month" onclick="setRange('month')">Month</button>
+          <button class="range-btn" data-range="quarter" onclick="setRange('quarter')">Quarter</button>
+          <button class="range-btn" data-range="year" onclick="setRange('year')">Year</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid" id="dashKpis">
+        <div class="kpi-card"><div class="kpi-label">Total Leads</div><div class="kpi-value" id="kpi-total">-</div><div class="kpi-sub" id="kpi-total-sub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">New Today</div><div class="kpi-value" id="kpi-today">-</div><div class="kpi-sub" id="kpi-today-sub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">Converted</div><div class="kpi-value" id="kpi-converted">-</div><div class="kpi-sub" id="kpi-converted-sub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">Conversion Rate</div><div class="kpi-value" id="kpi-rate">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Ad Spend (Period)</div><div class="kpi-value" id="kpi-spend">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Cost Per Lead</div><div class="kpi-value" id="kpi-cpl">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Revenue</div><div class="kpi-value" id="kpi-revenue">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">ROI</div><div class="kpi-value" id="kpi-roi">-</div></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="card-section">
+          <h3>Leads (Last 30 Days)</h3>
+          <div class="bar-chart" id="leadsChart"></div>
+        </div>
+        <div class="card-section">
+          <h3>Lead Sources</h3>
+          <div id="sourcesChart"></div>
+        </div>
+      </div>
+
+      <div class="card-section" style="margin-top: 20px;">
+        <h3>Conversion Funnel</h3>
+        <div class="funnel" id="funnelChart"></div>
+      </div>
+
+      <div class="card-section" style="margin-top: 20px;">
+        <h3>Recent Leads</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Email</th><th>Source</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="recentLeadsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ LEADS ══ -->
+    <div class="page-view" id="page-leads">
+      <div class="page-header">
+        <div>
+          <h2>Lead Management</h2>
+          <div class="subtitle">View and manage all incoming leads</div>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="filters">
+          <input type="text" id="leadSearch" placeholder="Search name, email, phone..." oninput="debounceLeads()">
+          <select id="leadStatusFilter" onchange="loadLeads()">
+            <option value="all">All Statuses</option>
+            <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="qualified">Qualified</option>
+            <option value="converted">Converted</option>
+            <option value="lost">Lost</option>
+          </select>
+          <select id="leadSourceFilter" onchange="loadLeads()">
+            <option value="all">All Sources</option>
+            <option value="Google Ads">Google Ads</option>
+            <option value="Meta Ads">Meta Ads</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Organic">Organic</option>
+            <option value="Direct">Direct</option>
+            <option value="Referral">Referral</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Debt</th><th>Source</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="leadsTableBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <div class="info" id="leadsPageInfo"></div>
+          <div class="controls">
+            <button onclick="leadsPage--; loadLeads()" id="leadsPrev" disabled>Prev</button>
+            <button onclick="leadsPage++; loadLeads()" id="leadsNext" disabled>Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CAMPAIGNS ══ -->
+    <div class="page-view" id="page-campaigns">
+      <div class="page-header">
+        <div>
+          <h2>Ad Campaigns</h2>
+          <div class="subtitle">Track your advertising spend and performance</div>
+        </div>
+        <button class="btn btn-primary" onclick="openCampaignModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Campaign
+        </button>
+      </div>
+
+      <div class="kpi-grid" id="campaignKpis">
+        <div class="kpi-card"><div class="kpi-label">Active Campaigns</div><div class="kpi-value" id="camp-active">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Total Budget</div><div class="kpi-value" id="camp-budget">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Total Spend</div><div class="kpi-value" id="camp-spent">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Budget Remaining</div><div class="kpi-value" id="camp-remaining">-</div></div>
+      </div>
+
+      <div class="card-section">
+        <div class="section-header">
+          <h3>All Campaigns</h3>
+          <div class="filters" style="margin-bottom: 0;">
+            <select id="campStatusFilter" onchange="loadCampaigns()">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="paused">Paused</option>
+              <option value="completed">Completed</option>
+              <option value="draft">Draft</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Campaign</th><th>Platform</th><th>Budget</th><th>Spent</th><th>Status</th><th>Start</th><th>Actions</th></tr></thead>
+            <tbody id="campaignsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PROFIT & LOSS ══ -->
+    <div class="page-view" id="page-profit">
+      <div class="page-header">
+        <div>
+          <h2>Profit & Loss</h2>
+          <div class="subtitle">Revenue, expenses, and return on investment</div>
+        </div>
+        <div class="range-sel" id="plRange">
+          <button class="range-btn" data-range="month" onclick="setPLRange('month')">Month</button>
+          <button class="range-btn active" data-range="quarter" onclick="setPLRange('quarter')">Quarter</button>
+          <button class="range-btn" data-range="year" onclick="setPLRange('year')">Year</button>
+          <button class="range-btn" data-range="all" onclick="setPLRange('all')">All Time</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Revenue</div><div class="kpi-value" id="pl-revenue">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Ad Spend</div><div class="kpi-value" id="pl-spend">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Net Profit</div><div class="kpi-value" id="pl-profit">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">ROI</div><div class="kpi-value" id="pl-roi">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Cost Per Lead</div><div class="kpi-value" id="pl-cpl">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Cost Per Acquisition</div><div class="kpi-value" id="pl-cpa">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Avg Revenue / Deal</div><div class="kpi-value" id="pl-ard">-</div></div>
+        <div class="kpi-card"><div class="kpi-label">Deals Closed</div><div class="kpi-value" id="pl-deals">-</div></div>
+      </div>
+
+      <div class="card-section">
+        <h3>Monthly Breakdown</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Month</th><th>Revenue</th><th>Ad Spend</th><th>Profit</th><th>Deals</th></tr></thead>
+            <tbody id="monthlyPLBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-section" style="margin-top:20px;">
+        <h3>Monthly Revenue vs Spend</h3>
+        <div class="bar-chart" id="plChart" style="height:200px;"></div>
+      </div>
+    </div>
+
+    <!-- ══ SETTINGS ══ -->
+    <div class="page-view" id="page-settings">
+      <div class="page-header">
+        <div>
+          <h2>Settings</h2>
+          <div class="subtitle">Account and portal configuration</div>
+        </div>
+      </div>
+      <div class="card-section">
+        <h3>Account</h3>
+        <div class="form-row" style="max-width:400px;">
+          <div class="form-group">
+            <label>Current Password</label>
+            <input type="password" id="settCurPass" placeholder="Enter current password">
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input type="password" id="settNewPass" placeholder="Enter new password">
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
+      </div>
+      <div class="card-section" style="margin-top:20px;">
+        <h3>API Configuration</h3>
+        <p style="font-size:13px;color:var(--gray-text);margin-bottom:12px;">Current API endpoint: <code id="settApiUrl"></code></p>
+        <div class="form-row" style="max-width:400px;">
+          <div class="form-group">
+            <label>Backend URL</label>
+            <input type="text" id="settApiInput" placeholder="http://localhost:5000">
+          </div>
+        </div>
+        <button class="btn btn-secondary" onclick="updateApiUrl()">Save API URL</button>
+      </div>
+      <div class="card-section" style="margin-top:20px;">
+        <h3>Go-Live Checklist</h3>
+        <div style="font-size:13px; line-height:2;">
+          <label><input type="checkbox" id="chk1"> Install Node.js (v18+) on server</label><br>
+          <label><input type="checkbox" id="chk2"> Set up MongoDB (Atlas free tier or local)</label><br>
+          <label><input type="checkbox" id="chk3"> Configure .env with production values</label><br>
+          <label><input type="checkbox" id="chk4"> Set real phone numbers in landing page</label><br>
+          <label><input type="checkbox" id="chk5"> Connect domain to server IP</label><br>
+          <label><input type="checkbox" id="chk6"> Set up SSL (Let's Encrypt / Certbot)</label><br>
+          <label><input type="checkbox" id="chk7"> Configure IRSLogics API key</label><br>
+          <label><input type="checkbox" id="chk8"> Create production admin user</label><br>
+          <label><input type="checkbox" id="chk9"> Test lead submission end-to-end</label><br>
+          <label><input type="checkbox" id="chk10"> Set up process manager (PM2)</label><br>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ═══ LEAD DETAIL PANEL ═══ -->
+<div class="panel-overlay" id="leadOverlay" onclick="closeLeadPanel()"></div>
+<div class="slide-panel" id="leadPanel">
+  <div class="panel-header">
+    <h3 id="panelLeadName">Lead Details</h3>
+    <button class="panel-close" onclick="closeLeadPanel()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="panelContent"></div>
+</div>
+
+<!-- ═══ CAMPAIGN MODAL ═══ -->
+<div class="modal-overlay" id="campaignModal">
+  <div class="modal">
+    <h3 id="campModalTitle">New Campaign</h3>
+    <form id="campaignForm" onsubmit="saveCampaign(event)">
+      <input type="hidden" id="campEditId">
+      <div class="form-row">
+        <div class="form-group"><label>Campaign Name *</label><input type="text" id="campName" required></div>
+        <div class="form-group"><label>Platform *</label>
+          <select id="campPlatform" required>
+            <option value="">Select...</option>
+            <option>Google Ads</option><option>Meta Ads</option><option>TikTok</option>
+            <option>Bing Ads</option><option>YouTube</option><option>LinkedIn</option>
+            <option>Direct Mail</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Budget ($)</label><input type="number" id="campBudget" min="0" step="0.01"></div>
+        <div class="form-group"><label>Status</label>
+          <select id="campStatus"><option value="active">Active</option><option value="paused">Paused</option><option value="draft">Draft</option><option value="completed">Completed</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Start Date *</label><input type="date" id="campStart" required></div>
+        <div class="form-group"><label>End Date</label><input type="date" id="campEnd"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>UTM Source</label><input type="text" id="campUtmSrc" placeholder="google"></div>
+        <div class="form-group"><label>UTM Medium</label><input type="text" id="campUtmMed" placeholder="cpc"></div>
+        <div class="form-group"><label>UTM Campaign</label><input type="text" id="campUtmCamp" placeholder="tax_relief_q1"></div>
+      </div>
+      <div class="form-group"><label>Notes</label><textarea id="campNotes" rows="3" style="resize:vertical;"></textarea></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeCampaignModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Campaign</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ SPEND MODAL ═══ -->
+<div class="modal-overlay" id="spendModal">
+  <div class="modal">
+    <h3>Log Ad Spend</h3>
+    <form id="spendForm" onsubmit="saveSpend(event)">
+      <input type="hidden" id="spendCampId">
+      <div class="form-row">
+        <div class="form-group"><label>Date *</label><input type="date" id="spendDate" required></div>
+        <div class="form-group"><label>Amount ($) *</label><input type="number" id="spendAmount" min="0" step="0.01" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Impressions</label><input type="number" id="spendImpressions" min="0"></div>
+        <div class="form-group"><label>Clicks</label><input type="number" id="spendClicks" min="0"></div>
+        <div class="form-group"><label>Conversions</label><input type="number" id="spendConversions" min="0"></div>
+      </div>
+      <div class="form-group"><label>Notes</label><input type="text" id="spendNotes" placeholder="Optional"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeSpendModal()">Cancel</button>
+        <button type="submit" class="btn btn-gold">Log Spend</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ─── CONFIG ───
+let API_BASE = localStorage.getItem('portalApiUrl') || (
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000' : ''
+);
+let token = localStorage.getItem('portalToken') || '';
+let currentRange = 'month';
+let plRange = 'quarter';
+let leadsPage = 1;
+const LEADS_PER_PAGE = 20;
+
+// ─── AUTH ───
+function authHeaders() {
+  return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+}
+
+async function doLogin(e) {
+  e.preventDefault();
+  const btn = document.getElementById('loginBtn');
+  const errEl = document.getElementById('loginError');
+  btn.disabled = true; btn.textContent = 'Signing in...'; errEl.style.display = 'none';
+  try {
+    const res = await fetch(API_BASE + '/api/auth/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: document.getElementById('loginUser').value, password: document.getElementById('loginPass').value })
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      token = data.token;
+      localStorage.setItem('portalToken', token);
+      showApp();
+    } else {
+      errEl.textContent = data.message || 'Login failed'; errEl.style.display = 'block';
+    }
+  } catch (err) {
+    errEl.textContent = 'Cannot connect to server. Check that the backend is running.'; errEl.style.display = 'block';
+  }
+  btn.disabled = false; btn.textContent = 'Sign In';
+}
+
+function doLogout() {
+  token = ''; localStorage.removeItem('portalToken');
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+}
+
+function showApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('settApiUrl').textContent = API_BASE;
+  document.getElementById('settApiInput').value = API_BASE;
+  loadDashboard();
+}
+
+// Auto-login if token exists
+if (token) { showApp(); }
+
+// ─── NAVIGATION ───
+function showPage(page) {
+  document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelector(`.nav-item[data-page="${page}"]`).classList.add('active');
+  // Close mobile menu
+  document.querySelector('.sidebar').classList.remove('open');
+  // Load data
+  if (page === 'dashboard') loadDashboard();
+  else if (page === 'leads') loadLeads();
+  else if (page === 'campaigns') loadCampaigns();
+  else if (page === 'profit') loadPL();
+}
+
+// ─── API HELPER ───
+async function api(path, opts = {}) {
+  const res = await fetch(API_BASE + path, { headers: authHeaders(), ...opts });
+  if (res.status === 401) { doLogout(); throw new Error('Session expired'); }
+  return res.json();
+}
+
+// ─── TOAST ───
+function toast(msg, type = 'success') {
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.textContent = msg;
+  document.getElementById('toastContainer').appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+
+// ─── FORMATTING ───
+function money(n) { return '$' + (n || 0).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+function moneyExact(n) { return '$' + (n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function fmtDate(d) { return d ? new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '-'; }
+function fmtDateTime(d) { return d ? new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '-'; }
+const debtLabels = { '10k_25k': '$10K–$25K', '25k_50k': '$25K–$50K', '50k_100k': '$50K–$100K', '100k_250k': '$100K–$250K', '250k_plus': '$250K+' };
+
+// ─── DASHBOARD ───
+function setRange(r) {
+  currentRange = r;
+  document.querySelectorAll('#dashRange .range-btn').forEach(b => b.classList.toggle('active', b.dataset.range === r));
+  loadDashboard();
+}
+
+async function loadDashboard() {
+  try {
+    const [summary, daily, funnel, sources, recentRes] = await Promise.all([
+      api('/api/analytics/summary?range=' + currentRange),
+      api('/api/analytics/leads-by-day?days=30'),
+      api('/api/analytics/funnel?range=' + currentRange),
+      api('/api/analytics/lead-sources?range=' + currentRange),
+      api('/api/leads?limit=5&sortBy=createdAt&sortOrder=desc'),
+    ]);
+
+    // Also load revenue data
+    let revData = { data: {} };
+    try { revData = await api('/api/revenue/summary?range=' + currentRange); } catch(e) {}
+
+    const s = summary.data || {};
+    const r = revData.data || {};
+
+    document.getElementById('kpi-total').textContent = s.totalLeads || 0;
+    document.getElementById('kpi-total-sub').textContent = `${s.leadsThisPeriod || 0} this period`;
+    document.getElementById('kpi-today').textContent = s.leadsToday || 0;
+    document.getElementById('kpi-today-sub').innerHTML = s.todayChange ? `<span class="${parseFloat(s.todayChange) >= 0 ? 'kpi-up' : 'kpi-down'}">${s.todayChange > 0 ? '+' : ''}${s.todayChange}% vs yesterday</span>` : '';
+    document.getElementById('kpi-converted').textContent = s.convertedLeads || 0;
+    document.getElementById('kpi-converted-sub').textContent = `${s.conversionRate || '0%'} rate`;
+    document.getElementById('kpi-rate').textContent = s.conversionRate || '0%';
+    document.getElementById('kpi-spend').textContent = money(r.periodAdSpend || 0);
+    document.getElementById('kpi-cpl').textContent = moneyExact(r.costPerLead || 0);
+    document.getElementById('kpi-revenue').textContent = money(r.totalRevenue || 0);
+    document.getElementById('kpi-roi').textContent = r.roi || '0%';
+
+    // Daily chart
+    renderBarChart('leadsChart', (daily.data || []).slice(-14), 'leads', 'date', var_blue);
+
+    // Sources
+    renderSourcesList('sourcesChart', sources.data || []);
+
+    // Funnel
+    renderFunnel('funnelChart', funnel.data || []);
+
+    // Recent leads
+    const tbody = document.getElementById('recentLeadsBody');
+    const leads = recentRes.data || [];
+    tbody.innerHTML = leads.length ? leads.map(l => `
+      <tr onclick="openLeadPanel('${l._id}')">
+        <td><strong>${esc(l.fullName)}</strong></td>
+        <td>${esc(l.email)}</td>
+        <td>${esc(l.source || 'Direct')}</td>
+        <td><span class="status-badge status-${l.status}">${l.status}</span></td>
+        <td>${fmtDateTime(l.createdAt)}</td>
+      </tr>
+    `).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--gray-text);padding:24px;">No leads yet</td></tr>';
+
+  } catch (err) {
+    console.error('Dashboard load error:', err);
+  }
+}
+
+const var_blue = '#0071e3';
+const var_teal = '#0d9488';
+const var_gold = '#d97706';
+
+function renderBarChart(containerId, data, valKey, labelKey, color) {
+  const container = document.getElementById(containerId);
+  if (!data.length) { container.innerHTML = '<div class="empty-state"><p>No data</p></div>'; return; }
+  const max = Math.max(...data.map(d => d[valKey]), 1);
+  container.innerHTML = data.map(d => {
+    const pct = (d[valKey] / max) * 100;
+    const label = d[labelKey].slice(5); // MM-DD
+    return `<div class="bar-col">
+      <div class="bar-value">${d[valKey]}</div>
+      <div class="bar" style="height:${Math.max(pct, 2)}%;background:${color};"></div>
+      <div class="bar-label">${label}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderSourcesList(containerId, sources) {
+  const container = document.getElementById(containerId);
+  if (!sources.length) { container.innerHTML = '<p style="color:var(--gray-text);font-size:13px;">No data</p>'; return; }
+  const colors = { 'Google Ads': var_blue, 'Meta Ads': '#3b82f6', 'TikTok': '#000', 'Organic': var_teal, 'Direct': var_gold, 'Referral': '#8b5cf6' };
+  container.innerHTML = sources.map(s => `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:${colors[s.source] || '#999'};flex-shrink:0;"></div>
+      <div style="flex:1;font-size:13px;font-weight:600;">${esc(s.source)}</div>
+      <div style="font-size:13px;font-weight:700;">${s.count}</div>
+      <div style="font-size:11px;color:var(--gray-text);width:40px;text-align:right;">${s.percentage}%</div>
+    </div>
+  `).join('');
+}
+
+function renderFunnel(containerId, stages) {
+  const container = document.getElementById(containerId);
+  if (!stages.length) { container.innerHTML = '<p style="color:var(--gray-text);font-size:13px;">No data</p>'; return; }
+  const max = Math.max(...stages.map(s => s.count), 1);
+  const colors = [var_blue, '#3b82f6', var_teal, var_gold, '#f59e0b', '#22c55e'];
+  container.innerHTML = stages.map((s, i) => {
+    const pct = (s.count / max) * 100;
+    return `<div class="funnel-row">
+      <div class="funnel-label">${s.stage}</div>
+      <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${Math.max(pct, 5)}%;background:${colors[i % colors.length]};">${s.count}</div></div>
+      <div class="funnel-count">${s.count}</div>
+    </div>`;
+  }).join('');
+}
+
+// ─── LEADS ───
+let leadsDebounce;
+function debounceLeads() { clearTimeout(leadsDebounce); leadsDebounce = setTimeout(() => { leadsPage = 1; loadLeads(); }, 300); }
+
+async function loadLeads() {
+  try {
+    const search = document.getElementById('leadSearch').value;
+    const status = document.getElementById('leadStatusFilter').value;
+    const source = document.getElementById('leadSourceFilter').value;
+    let url = `/api/leads?page=${leadsPage}&limit=${LEADS_PER_PAGE}&sortBy=createdAt&sortOrder=desc`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
+    if (status !== 'all') url += `&status=${status}`;
+    if (source !== 'all') url += `&source=${encodeURIComponent(source)}`;
+
+    const res = await api(url);
+    const leads = res.data || [];
+    const pg = res.pagination || {};
+
+    const tbody = document.getElementById('leadsTableBody');
+    tbody.innerHTML = leads.length ? leads.map(l => `
+      <tr onclick="openLeadPanel('${l._id}')">
+        <td><strong>${esc(l.fullName)}</strong></td>
+        <td>${esc(l.email)}</td>
+        <td>${esc(l.phone)}</td>
+        <td>${debtLabels[l.debtAmount] || l.debtAmount || '-'}</td>
+        <td>${esc(l.source || 'Direct')}</td>
+        <td><span class="status-badge status-${l.status}">${l.status}</span></td>
+        <td>${fmtDate(l.createdAt)}</td>
+      </tr>
+    `).join('') : '<tr><td colspan="7" style="text-align:center;color:var(--gray-text);padding:24px;">No leads found</td></tr>';
+
+    document.getElementById('leadsPageInfo').textContent = `Showing ${leads.length} of ${pg.total || 0} leads (Page ${pg.page || 1} of ${pg.totalPages || 1})`;
+    document.getElementById('leadsPrev').disabled = (pg.page || 1) <= 1;
+    document.getElementById('leadsNext').disabled = (pg.page || 1) >= (pg.totalPages || 1);
+  } catch (err) {
+    console.error('Leads load error:', err);
+  }
+}
+
+async function openLeadPanel(id) {
+  const panel = document.getElementById('leadPanel');
+  const overlay = document.getElementById('leadOverlay');
+  overlay.classList.add('open');
+  panel.classList.add('open');
+
+  try {
+    const res = await api('/api/leads/' + id);
+    const l = res.data;
+    document.getElementById('panelLeadName').textContent = l.fullName;
+    document.getElementById('panelContent').innerHTML = `
+      <div class="panel-section">
+        <h4>Contact Information</h4>
+        <div class="panel-field"><span class="label">Email</span><span class="value">${esc(l.email)}</span></div>
+        <div class="panel-field"><span class="label">Phone</span><span class="value"><a href="tel:${l.phone}" style="color:var(--blue);text-decoration:none;">${esc(l.phone)}</a></span></div>
+        <div class="panel-field"><span class="label">Best Call Time</span><span class="value">${esc(l.bestCallTime || 'Anytime')}</span></div>
+      </div>
+      <div class="panel-section">
+        <h4>Tax Situation</h4>
+        <div class="panel-field"><span class="label">Debt Type</span><span class="value">${esc(l.taxDebtType)}</span></div>
+        <div class="panel-field"><span class="label">Debt Amount</span><span class="value">${debtLabels[l.debtAmount] || l.debtAmount}</span></div>
+        <div class="panel-field"><span class="label">Company</span><span class="value">${(l.preferredCompanies || []).join(', ') || '-'}</span></div>
+      </div>
+      <div class="panel-section">
+        <h4>Status & Revenue</h4>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Status</label>
+            <select id="panelStatus" onchange="updateLeadField('${l._id}', 'status', this.value)">
+              ${['new','contacted','qualified','converted','lost'].map(s => `<option value="${s}" ${l.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Revenue ($)</label>
+            <input type="number" id="panelRevenue" value="${l.revenue || ''}" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+        <button class="btn btn-gold btn-sm" onclick="saveLeadRevenue('${l._id}')">Save Revenue</button>
+      </div>
+      <div class="panel-section">
+        <h4>Notes</h4>
+        <textarea id="panelNotes" rows="4" style="width:100%;padding:8px 12px;border:1px solid var(--gray-border);border-radius:8px;font-size:13px;font-family:inherit;resize:vertical;">${esc(l.notes || '')}</textarea>
+        <button class="btn btn-secondary btn-sm" style="margin-top:8px;" onclick="updateLeadField('${l._id}', 'notes', document.getElementById('panelNotes').value)">Save Notes</button>
+      </div>
+      <div class="panel-section">
+        <h4>Tracking</h4>
+        <div class="panel-field"><span class="label">Source</span><span class="value">${esc(l.source || 'Unknown')}</span></div>
+        <div class="panel-field"><span class="label">UTM Campaign</span><span class="value">${esc(l.utmCampaign || '-')}</span></div>
+        <div class="panel-field"><span class="label">UTM Source</span><span class="value">${esc(l.utmSource || '-')}</span></div>
+        <div class="panel-field"><span class="label">UTM Medium</span><span class="value">${esc(l.utmMedium || '-')}</span></div>
+        <div class="panel-field"><span class="label">Submitted</span><span class="value">${fmtDateTime(l.createdAt)}</span></div>
+        <div class="panel-field"><span class="label">Landing Page</span><span class="value" style="font-size:11px;word-break:break-all;">${esc(l.landingPage || '-')}</span></div>
+      </div>
+    `;
+  } catch (err) {
+    document.getElementById('panelContent').innerHTML = '<p style="color:var(--red);">Failed to load lead details.</p>';
+  }
+}
+
+function closeLeadPanel() {
+  document.getElementById('leadPanel').classList.remove('open');
+  document.getElementById('leadOverlay').classList.remove('open');
+}
+
+async function updateLeadField(id, field, value) {
+  try {
+    await api('/api/leads/' + id, { method: 'PATCH', body: JSON.stringify({ [field]: value }) });
+    toast(`${field === 'status' ? 'Status' : 'Notes'} updated`);
+    // Refresh tables in background
+    loadLeads(); loadDashboard();
+  } catch (err) { toast('Failed to update', 'error'); }
+}
+
+async function saveLeadRevenue(id) {
+  const rev = parseFloat(document.getElementById('panelRevenue').value);
+  if (isNaN(rev) || rev < 0) { toast('Enter a valid revenue amount', 'error'); return; }
+  try {
+    await api('/api/revenue/lead/' + id, { method: 'PATCH', body: JSON.stringify({ revenue: rev }) });
+    toast('Revenue saved');
+  } catch (err) { toast('Failed to save revenue', 'error'); }
+}
+
+// ─── CAMPAIGNS ───
+async function loadCampaigns() {
+  try {
+    const statusFilter = document.getElementById('campStatusFilter').value;
+    let url = '/api/campaigns?sortBy=createdAt&sortOrder=desc';
+    if (statusFilter !== 'all') url += `&status=${statusFilter}`;
+
+    const res = await api(url);
+    const campaigns = res.data || [];
+
+    // KPIs
+    const active = campaigns.filter(c => c.status === 'active').length;
+    const totalBudget = campaigns.reduce((s, c) => s + (c.budget || 0), 0);
+    const totalSpent = campaigns.reduce((s, c) => s + (c.totalSpend || 0), 0);
+
+    document.getElementById('camp-active').textContent = active;
+    document.getElementById('camp-budget').textContent = money(totalBudget);
+    document.getElementById('camp-spent').textContent = money(totalSpent);
+    document.getElementById('camp-remaining').textContent = money(totalBudget - totalSpent);
+
+    const tbody = document.getElementById('campaignsTableBody');
+    tbody.innerHTML = campaigns.length ? campaigns.map(c => `
+      <tr>
+        <td><strong>${esc(c.name)}</strong></td>
+        <td>${esc(c.platform)}</td>
+        <td>${money(c.budget || 0)}</td>
+        <td>${money(c.totalSpend || 0)}</td>
+        <td><span class="status-badge status-${c.status}">${c.status}</span></td>
+        <td>${fmtDate(c.startDate)}</td>
+        <td>
+          <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); openSpendModal('${c._id}')" title="Log spend">+ Spend</button>
+          <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); editCampaign('${c._id}')" title="Edit">Edit</button>
+        </td>
+      </tr>
+    `).join('') : '<tr><td colspan="7" style="text-align:center;color:var(--gray-text);padding:24px;">No campaigns yet. Create your first campaign above.</td></tr>';
+  } catch (err) {
+    console.error('Campaigns load error:', err);
+  }
+}
+
+function openCampaignModal(campaign) {
+  document.getElementById('campEditId').value = campaign?._id || '';
+  document.getElementById('campModalTitle').textContent = campaign ? 'Edit Campaign' : 'New Campaign';
+  document.getElementById('campName').value = campaign?.name || '';
+  document.getElementById('campPlatform').value = campaign?.platform || '';
+  document.getElementById('campBudget').value = campaign?.budget || '';
+  document.getElementById('campStatus').value = campaign?.status || 'active';
+  document.getElementById('campStart').value = campaign?.startDate ? campaign.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10);
+  document.getElementById('campEnd').value = campaign?.endDate ? campaign.endDate.slice(0, 10) : '';
+  document.getElementById('campUtmSrc').value = campaign?.utmSource || '';
+  document.getElementById('campUtmMed').value = campaign?.utmMedium || '';
+  document.getElementById('campUtmCamp').value = campaign?.utmCampaign || '';
+  document.getElementById('campNotes').value = campaign?.notes || '';
+  document.getElementById('campaignModal').classList.add('open');
+}
+
+function closeCampaignModal() { document.getElementById('campaignModal').classList.remove('open'); }
+
+async function saveCampaign(e) {
+  e.preventDefault();
+  const id = document.getElementById('campEditId').value;
+  const payload = {
+    name: document.getElementById('campName').value,
+    platform: document.getElementById('campPlatform').value,
+    budget: parseFloat(document.getElementById('campBudget').value) || 0,
+    status: document.getElementById('campStatus').value,
+    startDate: document.getElementById('campStart').value,
+    endDate: document.getElementById('campEnd').value || undefined,
+    utmSource: document.getElementById('campUtmSrc').value,
+    utmMedium: document.getElementById('campUtmMed').value,
+    utmCampaign: document.getElementById('campUtmCamp').value,
+    notes: document.getElementById('campNotes').value,
+  };
+
+  try {
+    if (id) {
+      await api('/api/campaigns/' + id, { method: 'PATCH', body: JSON.stringify(payload) });
+      toast('Campaign updated');
+    } else {
+      await api('/api/campaigns', { method: 'POST', body: JSON.stringify(payload) });
+      toast('Campaign created');
+    }
+    closeCampaignModal();
+    loadCampaigns();
+  } catch (err) { toast('Failed to save campaign', 'error'); }
+}
+
+async function editCampaign(id) {
+  try {
+    const res = await api('/api/campaigns/' + id);
+    openCampaignModal(res.data);
+  } catch (err) { toast('Failed to load campaign', 'error'); }
+}
+
+function openSpendModal(campId) {
+  document.getElementById('spendCampId').value = campId;
+  document.getElementById('spendDate').value = new Date().toISOString().slice(0, 10);
+  document.getElementById('spendAmount').value = '';
+  document.getElementById('spendImpressions').value = '';
+  document.getElementById('spendClicks').value = '';
+  document.getElementById('spendConversions').value = '';
+  document.getElementById('spendNotes').value = '';
+  document.getElementById('spendModal').classList.add('open');
+}
+
+function closeSpendModal() { document.getElementById('spendModal').classList.remove('open'); }
+
+async function saveSpend(e) {
+  e.preventDefault();
+  const campId = document.getElementById('spendCampId').value;
+  const payload = {
+    date: document.getElementById('spendDate').value,
+    amount: parseFloat(document.getElementById('spendAmount').value),
+    impressions: parseInt(document.getElementById('spendImpressions').value) || 0,
+    clicks: parseInt(document.getElementById('spendClicks').value) || 0,
+    conversions: parseInt(document.getElementById('spendConversions').value) || 0,
+    notes: document.getElementById('spendNotes').value,
+  };
+
+  try {
+    await api('/api/campaigns/' + campId + '/spend', { method: 'POST', body: JSON.stringify(payload) });
+    toast('Spend logged');
+    closeSpendModal();
+    loadCampaigns();
+  } catch (err) { toast('Failed to log spend', 'error'); }
+}
+
+// ─── PROFIT & LOSS ───
+function setPLRange(r) {
+  plRange = r;
+  document.querySelectorAll('#plRange .range-btn').forEach(b => b.classList.toggle('active', b.dataset.range === r));
+  loadPL();
+}
+
+async function loadPL() {
+  try {
+    const [summary, monthly] = await Promise.all([
+      api('/api/revenue/summary?range=' + plRange),
+      api('/api/revenue/by-month?months=12'),
+    ]);
+
+    const d = summary.data || {};
+    document.getElementById('pl-revenue').textContent = money(d.totalRevenue);
+    document.getElementById('pl-spend').textContent = money(d.periodAdSpend);
+    document.getElementById('pl-profit').textContent = money(d.profit);
+    document.getElementById('pl-profit').style.color = (d.profit || 0) >= 0 ? 'var(--green)' : 'var(--red)';
+    document.getElementById('pl-roi').textContent = d.roi || '0%';
+    document.getElementById('pl-cpl').textContent = moneyExact(d.costPerLead);
+    document.getElementById('pl-cpa').textContent = moneyExact(d.costPerAcquisition);
+    document.getElementById('pl-ard').textContent = moneyExact(d.avgRevenuePerDeal);
+    document.getElementById('pl-deals').textContent = d.convertedCount || 0;
+
+    // Monthly table
+    const months = monthly.data || [];
+    const tbody = document.getElementById('monthlyPLBody');
+    tbody.innerHTML = months.map(m => `
+      <tr>
+        <td><strong>${m.month}</strong></td>
+        <td>${money(m.revenue)}</td>
+        <td>${money(m.adSpend)}</td>
+        <td style="color:${m.profit >= 0 ? 'var(--green)' : 'var(--red)'}; font-weight:700;">${money(m.profit)}</td>
+        <td>${m.deals}</td>
+      </tr>
+    `).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--gray-text);padding:24px;">No data yet</td></tr>';
+
+    // PL chart — stacked bars for revenue and spend
+    const plContainer = document.getElementById('plChart');
+    if (months.length) {
+      const max = Math.max(...months.map(m => Math.max(m.revenue, m.adSpend)), 1);
+      plContainer.innerHTML = months.map(m => {
+        const revPct = (m.revenue / max) * 100;
+        const spendPct = (m.adSpend / max) * 100;
+        return `<div class="bar-col">
+          <div class="bar-value" style="font-size:8px;">${money(m.revenue)}</div>
+          <div style="display:flex;gap:2px;align-items:flex-end;height:100%;width:100%;justify-content:center;">
+            <div class="bar" style="height:${Math.max(revPct,2)}%;background:${var_teal};max-width:14px;"></div>
+            <div class="bar" style="height:${Math.max(spendPct,2)}%;background:${var_blue};max-width:14px;"></div>
+          </div>
+          <div class="bar-label">${m.month.slice(5)}</div>
+        </div>`;
+      }).join('');
+    } else {
+      plContainer.innerHTML = '<div class="empty-state"><p>No monthly data</p></div>';
+    }
+  } catch (err) {
+    console.error('P&L load error:', err);
+  }
+}
+
+// ─── SETTINGS ───
+async function changePassword() {
+  const cur = document.getElementById('settCurPass').value;
+  const nw = document.getElementById('settNewPass').value;
+  if (!cur || !nw) { toast('Fill in both fields', 'error'); return; }
+  try {
+    const res = await api('/api/auth/change-password', {
+      method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: nw })
+    });
+    if (res.success) {
+      token = res.token; localStorage.setItem('portalToken', token);
+      toast('Password updated');
+      document.getElementById('settCurPass').value = '';
+      document.getElementById('settNewPass').value = '';
+    } else { toast(res.message || 'Failed', 'error'); }
+  } catch (err) { toast('Failed to change password', 'error'); }
+}
+
+function updateApiUrl() {
+  const url = document.getElementById('settApiInput').value.replace(/\/$/, '');
+  API_BASE = url;
+  localStorage.setItem('portalApiUrl', url);
+  document.getElementById('settApiUrl').textContent = url;
+  toast('API URL updated');
+}
+
+// ─── ESCAPE HTML ───
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+// ─── KEYBOARD ───
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLeadPanel();
+    closeCampaignModal();
+    closeSpendModal();
+  }
+});
+</script>
+</body>
+</html>
