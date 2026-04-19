@@ -694,12 +694,7 @@
 
 <script>
 // ─── CONFIG ───
-let API_BASE = 'https://tax-assist-list-api.onrender.com';
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-    ? 'http://localhost:5000' : ''
-);
-let token = localStorage.getItem('portalToken') || '';
-let currentRange = 'month';
+let API_BASE = 'https://tax-assist-list-api.onrender.com';let currentRange = 'month';
 let plRange = 'quarter';
 let leadsPage = 1;
 const LEADS_PER_PAGE = 20;
